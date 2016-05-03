@@ -10,9 +10,9 @@ public class VOLibro extends VOFondo {
 	private Date ano_edicion;
 	private String editorial;
 
-	public VOLibro(Integer id, String titulo, Date fecha_compra, Integer ejemplares, String iSBN,
+	public VOLibro(Integer id, String titulo, Date fecha_compra, String iSBN,
 			ArrayList<String> autores, Date ano_edicion, String editorial) {
-		super(id, titulo, fecha_compra, ejemplares);
+		super(id, titulo, fecha_compra);
 		ISBN = iSBN;
 		this.autores = autores;
 		this.ano_edicion = ano_edicion;

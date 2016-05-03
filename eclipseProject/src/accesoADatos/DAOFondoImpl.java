@@ -1,25 +1,102 @@
 package accesoADatos;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class DAOFondoImpl implements DAOFondo{
+public class DAOFondoImpl implements DAOFondo {
 
 	@Override
 	public VOFondo getFondoById(Integer id) {
-		// TODO Auto-generated method stub
+		try {
+			Connector conector = new Connector();
+			Connection con = conector.getConnection();
+
+			PreparedStatement pstmt = null;
+
+			String sqlSelect = "SELECT * FROM Fondo " + " WHERE id = ?;";
+
+			pstmt = con.prepareStatement(sqlSelect);
+			pstmt.setInt(1, id);
+
+			ResultSet res = pstmt.executeQuery();
+
+			if (res.next()) {
+				VOFondo fondo = new VOFondo(res.getInt("id"), res.getString("titulo"), res.getDate("fecha_compra"));
+				return fondo;
+			}
+
+		} catch (
+
+		SQLException e) {
+			System.out.println("Error en la consulta");
+			e.printStackTrace();
+		}
 		return null;
 	}
 
 	@Override
 	public VOFondo getFondoByTitulo(String titulo) {
-		// TODO Auto-generated method stub
+		try {
+			Connector conector = new Connector();
+			Connection con = conector.getConnection();
+
+			PreparedStatement pstmt = null;
+
+			String sqlSelect = "SELECT * FROM Fondo " + " WHERE titulo = ?;";
+
+			pstmt = con.prepareStatement(sqlSelect);
+			pstmt.setString(1, titulo);
+
+			ResultSet res = pstmt.executeQuery();
+
+			if (res.next()) {
+				VOFondo fondo = new VOFondo(res.getInt("id"), res.getString("titulo"), res.getDate("fecha_compra"));
+				return fondo;
+			}
+
+		} catch (
+
+		SQLException e) {
+			System.out.println("Error en la consulta");
+			e.printStackTrace();
+		}
 		return null;
 	}
 
 	@Override
 	public ArrayList<VOFondo> getFondosByFechas(Date desde, Date hasta) {
-		// TODO Auto-generated method stub
+		try {
+			Connector conector = new Connector();
+			Connection con = conector.getConnection();
+
+			PreparedStatement pstmt = null;
+
+			String sqlSelect = "SELECT * FROM Fondo " + 
+			" WHERE fecha_compra between ? AND ?;";
+
+			pstmt = con.prepareStatement(sqlSelect);
+			pstmt.setDate(1, new java.sql.Date(desde.getTime()));
+			pstmt.setDate(2, new java.sql.Date(hasta.getTime()));
+
+			ResultSet res = pstmt.executeQuery();
+			
+			ArrayList<VOFondo> fondos = new ArrayList<>();
+
+			while (res.next()) {
+				VOFondo fondo = new VOFondo(res.getInt("id"), res.getString("titulo"), res.getDate("fecha_compra"));
+				return fondo;
+			}
+
+		} catch (
+
+		SQLException e) {
+			System.out.println("Error en la consulta");
+			e.printStackTrace();
+		}
 		return null;
 	}
 
