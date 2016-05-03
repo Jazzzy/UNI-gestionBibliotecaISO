@@ -180,7 +180,7 @@ public class DAOUsuarioImpl implements DAOUsuario {
 
 			String sqlInsert = "INSERT INTO Usuario "
 					+ "(nombre, dni, sexo, fecha_nacimiento, direccion, telefono, email) "
-					+ " VALUES ( ?, ?, ?, ?, ?, ?, ?)";
+					+ " VALUES ( ?, ?, ?, ?, ?, ?, ?);";
 
 			pstmt2 = con.prepareStatement(sqlInsert);
 			pstmt2.setString(1, usuario.getNombre());
@@ -390,7 +390,7 @@ public class DAOUsuarioImpl implements DAOUsuario {
             PreparedStatement pstmt, pstmt2;
 
             String sqlSelect =
-                    "SELECT * FROM usuarios "
+                    "SELECT * FROM Usuario "
                             + " WHERE id = ?;";
 
             pstmt = con.prepareStatement(sqlSelect);
@@ -398,7 +398,7 @@ public class DAOUsuarioImpl implements DAOUsuario {
 
 
             String sqlUpdate =
-                    "UPDATE usuarios " +
+                    "UPDATE Usuario " +
                             "SET nombre = ?, " +
                             "dni = ?, " +
                             "sexo = ?, " +
