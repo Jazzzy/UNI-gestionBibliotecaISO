@@ -1,0 +1,18 @@
+package accesoADatos;
+
+import java.util.Date;
+
+public class VOUsuario {
+
+	private Integer id;
+	private String nombre;
+	private String dni;
+	private boolean sexo;
+	private Date fecha_nacimiento;
+	private String direccion;
+	private String telefono;
+	private String email;
+	
+	
+	
+}

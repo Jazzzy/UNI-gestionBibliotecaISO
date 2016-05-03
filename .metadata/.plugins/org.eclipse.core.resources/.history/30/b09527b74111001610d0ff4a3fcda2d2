@@ -1,0 +1,15 @@
+package accesoADatos;
+
+import java.util.Date;
+
+public class VOPrestamo {
+
+	private Integer id;
+	private Date fecha_inicio;
+	private Date fecha_fin;
+	private VOUsuario usuario;
+	private VOFondo fondo;
+	
+	
+	
+}

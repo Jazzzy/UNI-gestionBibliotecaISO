@@ -1,5 +1,7 @@
 package accesoADatos;
 
-public interface InterfazAccesoADatos {
 
+public interface InterfazAccesoADatos extends DAOPrestamo,DAOFondo,DAOUsuario {
+
+	
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="accesoADatos.InterfazAccesoADatos"/>
+<fullyQualifiedTypeName name="accesoADatos.VOFondo"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="accesoADatos.DAOPrestamo"/>
+<fullyQualifiedTypeName name="accesoADatos.DAOFondo"/>
+<fullyQualifiedTypeName name="accesoADatos.DAOUsuario"/>
+</qualifiedTypeNameHistroy>

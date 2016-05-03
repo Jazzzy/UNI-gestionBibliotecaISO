@@ -1,0 +1,86 @@
+package accesoADatos;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+public interface InterfazAccesoADatos {
+
+	VOUsuario getUsuarioById(Integer id);
+
+	VOUsuario getUsuarioByNombre(String nombre);
+
+	VOUsuario getUsuarioByEmail(String email);
+
+	VOUsuario getUsuarioByDNI(String DNI);
+
+	ArrayList<VOUsuario> getUsuarios();
+
+	Integer anadirUsuario(VOUsuario usuario);
+
+	Integer borrarUsuario(VOUsuario usuario);
+
+	Integer borrarUsuarioById(Integer id);
+
+	Integer borrarUsuarioByDNI(String DNI);
+
+	Integer modificarUsuario(VOUsuario usuario);
+
+	VOFondo getFondoById(Integer id);
+
+	VOFondo getFondoByTitulo(String titulo);
+
+	ArrayList<VOFondo> getFondosByFechas(Date desde, Date hasta);
+
+	VOFondo getFondoByISBN(String ISBN);
+
+	ArrayList<VOFondo> getFondos();
+
+	ArrayList<VOFondo> getFondosByAutor(String autor);
+
+	ArrayList<VOFondo> getFondosByAnoEdicion(Date desde, Date hasta);
+
+	ArrayList<VOFondo> getFondosByEditorial(String editorial);
+
+	ArrayList<VOFondo> getFondosByAutorYTitulo(String autor, String titulo);
+
+	ArrayList<VOLibro> getLibros();
+
+	Integer anadirFondo(VOFondo fondo);
+
+	Integer anadirLibro(VOLibro libro);
+
+	Integer modificarFondo(VOFondo fondo);
+
+	Integer modificarLibro(VOLibro libro);
+
+	Integer borrarFondo(VOFondo fondo);
+
+	Integer borrarFondo(Integer id);
+
+	Integer borrarFondo(String titulo);
+
+	Integer borrarLibro(String ISBN);
+
+	VOPrestamo getPrestamoById(Integer id);
+
+	ArrayList<VOPrestamo> getPrestamos();
+
+	ArrayList<VOPrestamo> getPrestamosByUsuario(Integer id_usuario);
+
+	ArrayList<VOPrestamo> getPrestamosByFondo(Integer id_fondo);
+
+	ArrayList<VOPrestamo> getPrestamosPendientes();
+
+	ArrayList<VOPrestamo> getPrestamosPendientesDeUsuario(Integer id_usuario);
+
+	ArrayList<VOPrestamo> getPrestamosByFecha(Date desde, Date hasta);
+
+	ArrayList<VOPrestamo> getPrestamosByFechaYUsuario(Date desde, Date hasta, Integer id_usuario);
+
+	Integer anadirPrestamo(VOPrestamo prestamo);
+
+	Integer modificarPrestamo(VOPrestamo prestamo);
+
+	Integer borrarPrestamo(Integer id_prestamo);
+
+}
