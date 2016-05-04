@@ -7,8 +7,13 @@ public class GestorImportacionCSV extends GestorImportacion {
 	}
 
 	public VODatosImportados importar() {
-
-		return null;
+		
+		
+		InterfazImportacion imp = new InterfazImportacionImpl();
+		VODatosImportados aux;
+		aux = imp.importarDesdeCSV(ruta);
+		
+		return aux;
 
 	}
 

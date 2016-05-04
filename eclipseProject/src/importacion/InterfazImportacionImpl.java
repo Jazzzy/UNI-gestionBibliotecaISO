@@ -7,6 +7,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import com.csvreader.CsvReader;
+
+import accesoADatos.VOFondo;
 import accesoADatos.VOLibro;
 
 public class InterfazImportacionImpl implements InterfazImportacion {
@@ -22,7 +24,7 @@ public class InterfazImportacionImpl implements InterfazImportacion {
 		try {
 			String titulo, fecha_compra, ISBN, autores, ano_edicion, editorial;
 			ArrayList<String> autoresaux = new ArrayList<>();
-			ArrayList<VOLibro> libros = new ArrayList<>();
+			ArrayList<VOFondo> fondos = new ArrayList<>();
 
 			VOLibro libroaux;
 
@@ -48,13 +50,15 @@ public class InterfazImportacionImpl implements InterfazImportacion {
 				libroaux = new VOLibro(null, titulo, formatter.parse(fecha_compra), ISBN, autoresaux,
 						formatter.parse(ano_edicion), editorial);
 
-				libros.add(libroaux);
+				fondos.add((VOFondo) libroaux);
 
 			}
 
 			libros_import.close();
 
-			importacion = new VODatosImportados(libros);
+			importacion = new VODatosImportados(fondos);
+			
+			// TODO LLAMADA A FUNCIONES DE ESTADISTICA PARA RELLENAR EL RESTO DE DATOS
 
 			return importacion;
 

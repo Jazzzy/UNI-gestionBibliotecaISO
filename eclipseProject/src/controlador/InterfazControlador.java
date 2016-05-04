@@ -1,5 +1,6 @@
 package controlador;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.w3c.dom.Document;
@@ -12,15 +13,15 @@ public interface InterfazControlador {
 	
 	
 	Document BorrarUsuario(Integer id);
-	Document AnadirUsuario(String nombre, String contrasena, String DNI, Integer sexo, Date fechaNacimiento, String direccion, String telefono, String email);
-	Document ModificarUsuario(Integer id, String nombre, String contrasena, String DNI, Integer sexo, Date fechaNacimiento, String direccion, String telefono, String email);
+	Document AnadirUsuario(String nombre, String DNI, boolean sexo, Date fechaNacimiento, String direccion, String telefono, String email);
+	Document ModificarUsuario(Integer id, String nombre, String DNI, boolean sexo, Date fechaNacimiento, String direccion, String telefono, String email);
 	Document VisualizarUsuario(Integer id);
-	Document AnadirFondo(String titulo, String autor, Integer stock, String ISBN, Date anoEdicion, String editorial);
-	Document BorrarFondo(Integer id);
-	Document ModificarFondo(Integer id, String titulo, String autor, Integer stock, String ISBN, Date anoEdicion, String editorial);
-	Document VisualizarFondo(Integer id);
+	Document AnadirLibro(String titulo, Date fecha_compra, String iSBN, ArrayList<String> autores, Date ano_edicion, String editorial);
+	Document BorrarLibro(Integer id);
+	Document ModificarLibro(Integer id, String titulo, Date fecha_compra, String iSBN, ArrayList<String> autores, Date ano_edicion, String editorial);
+	Document VisualizarLibro(Integer id);
 	Document ImportarDesdeFichero(String ruta);
-	Document BuscarFondo(String titulo, String autor);
+	Document BuscarLibro(String titulo, String autor);
 	Document MostrarEstadisticasValoresBruto(Integer opcion);
 	Document MostrarEstadisticasMedias(Integer opcion);
 	Document MostrarEstadisticasPorcentajes(Integer opcion);

@@ -2,14 +2,15 @@ package controlador;
 
 import org.w3c.dom.Document;
 
-import accesoADatos.DAOPrestamo;
+import accesoADatos.DAOFondo;
 import accesoADatos.FactoriaDAO;
+import accesoADatos.VOLibro;
 
-public class HelperBorrarPrestamo implements Helper {
+public class HelperVisualizarLibro implements Helper {
 
 	private Integer id;
 
-	public HelperBorrarPrestamo(Integer id) {
+	public HelperVisualizarLibro(Integer id) {
 		super();
 		this.id = id;
 	}
@@ -18,14 +19,14 @@ public class HelperBorrarPrestamo implements Helper {
 	public Document ejecutar() {
 
 		FactoriaDAO f = FactoriaDAO.newFactoria();
-		DAOPrestamo p = f.crearDAOPrestamo();
+		DAOFondo u = f.crearDAOFondo();
+		VOLibro libro = (VOLibro) u.getFondoById(id);
 
-		Integer error = p.borrarPrestamo(id);
-
-		if (error == 0) {
+		if (libro != null) {
 
 			// TODO Document
 		}
+
 		return null;
 	}
 

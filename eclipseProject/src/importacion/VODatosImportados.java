@@ -4,11 +4,12 @@ import java.util.ArrayList;
 
 import org.w3c.dom.Document;
 
+import accesoADatos.VOFondo;
 import accesoADatos.VOLibro;
 
 public class VODatosImportados {
 
-	ArrayList<VOLibro> libros;
+	ArrayList<VOFondo> fondos;
 	Integer librosUltimaSemana;
 	Integer librosUltimoMes;
 	Integer librosUltimoAno;
@@ -19,17 +20,17 @@ public class VODatosImportados {
 	Float porcentajeDeLibrosEnUnDiaSobreElMes;
 	Float porcentajeDeLibrosEnUnaSemanaSobreElAno;
 
-	public VODatosImportados(ArrayList<VOLibro> libros) {
+	public VODatosImportados(ArrayList<VOFondo> fondos) {
 		super();
-		this.libros = libros;
+		this.fondos = fondos;
 	}
 
-	public VODatosImportados(ArrayList<VOLibro> libros, Integer librosUltimaSemana, Integer librosUltimoMes,
+	public VODatosImportados(ArrayList<VOFondo> fondos, Integer librosUltimaSemana, Integer librosUltimoMes,
 			Integer librosUltimoAno, Integer mediaDiariaDeLibrosUltimoMes, Integer mediaSemanalDeLibrosUltimoAno,
 			Document histogramaComprasDiariasUltimoMes, Document histogramaComprasSemanalesUltimoAno,
 			Float porcentajeDeLibrosEnUnDiaSobreElMes, Float porcentajeDeLibrosEnUnaSemanaSobreElAno) {
 		super();
-		this.libros = libros;
+		this.fondos = fondos;
 		this.librosUltimaSemana = librosUltimaSemana;
 		this.librosUltimoMes = librosUltimoMes;
 		this.librosUltimoAno = librosUltimoAno;
@@ -41,12 +42,12 @@ public class VODatosImportados {
 		this.porcentajeDeLibrosEnUnaSemanaSobreElAno = porcentajeDeLibrosEnUnaSemanaSobreElAno;
 	}
 
-	public ArrayList<VOLibro> getFondos() {
-		return libros;
+	public ArrayList<VOFondo> getFondos() {
+		return fondos;
 	}
 
-	public void setFondos(ArrayList<VOLibro> libros) {
-		this.libros = libros;
+	public void setFondos(ArrayList<VOFondo> fondos) {
+		this.fondos = fondos;
 	}
 
 	public Integer getLibrosUltimaSemana() {
