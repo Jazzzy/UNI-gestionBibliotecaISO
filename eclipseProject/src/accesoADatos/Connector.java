@@ -25,7 +25,7 @@ public class Connector {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
 
-            InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream("accesoADatos/conf/config.xml");
+            InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream("config/config.xml");
             Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new InputSource(input));
             XPath xpath = XPathFactory.newInstance().newXPath();
             url = (String) xpath.compile("//config//jdbc//url").evaluate(document, XPathConstants.STRING);
@@ -33,7 +33,7 @@ public class Connector {
             String username = (String) xpath.compile("//config//jdbc//username").evaluate(document, XPathConstants.STRING);
             String password = (String) xpath.compile("//config//jdbc//password").evaluate(document, XPathConstants.STRING);
 
-            Connection con = DriverManager.getConnection(url, username, password);
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/DBbiblioteca", username, password);
             return con;
         } catch (SQLException e) {
             System.out.println("Conexion NO establecida con " + url);

@@ -64,10 +64,4 @@ public class InterfazEstadisticoImpl implements InterfazEstadistico {
 		return estadistico.porcentajeDeLibrosEnUnaSemanaSobreElAno(semana);
 	}
 
-	@Override
-	public Integer compararEstadisticos(VODatosImportados di) {
-		ComparacionEstadisticos comparador = new ComparacionEstadisticos();
-		return comparador.comprararEstadisticos(di);
-	}
-
 }
