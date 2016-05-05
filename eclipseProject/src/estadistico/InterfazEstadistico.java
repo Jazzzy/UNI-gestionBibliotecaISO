@@ -4,7 +4,6 @@ import org.w3c.dom.Document;
 import importacion.VODatosImportados;
 
 public interface InterfazEstadistico {
-	public static Estadistico estadistico = null;
 	public Integer librosUltimaSemana();
 	public Integer librosUltimoMes();
 	public Integer librosUltimoAno();
