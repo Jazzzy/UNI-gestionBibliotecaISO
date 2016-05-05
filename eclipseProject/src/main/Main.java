@@ -6,6 +6,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.transform.OutputKeys;
@@ -22,7 +23,10 @@ public class Main{
         Controlador test = new Controlador();
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DAY_OF_MONTH, -5);
-        Document doc = test.MostrarEstadisticasValoresBruto(0, 1);
+        @SuppressWarnings("deprecation")
+		Date a = new Date("06/11/2000");
+        Document doc = test.VisualizarUsuario(1);
+        
         try {
             printDocument(doc, System.out);
         } catch (IOException ex) {

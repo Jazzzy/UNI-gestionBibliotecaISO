@@ -9,24 +9,28 @@ import org.w3c.dom.Element;
 
 import accesoADatos.DAOFondo;
 import accesoADatos.FactoriaDAO;
+import accesoADatos.InterfazAccesoADatos;
+import accesoADatos.InterfazAccesoADatosImpl;
+import accesoADatos.VOFondo;
 import accesoADatos.VOLibro;
 
 public class HelperVisualizarLibro implements Helper {
 
-	private Integer id;
+	private String ISBN;
 
-	public HelperVisualizarLibro(Integer id) {
+	public HelperVisualizarLibro(String ISBN) {
 		super();
-		this.id = id;
+		this.ISBN = ISBN;
 	}
 
 	@Override
 	public Document ejecutar() {
 
-		FactoriaDAO f = FactoriaDAO.newFactoria();
-		DAOFondo u = f.crearDAOFondo();
-		VOLibro libro = (VOLibro) u.getFondoById(id);
-
+		InterfazAccesoADatos ia = new InterfazAccesoADatosImpl(); 
+		VOFondo fondo =  ia.getFondoByISBN(ISBN);
+		VOLibro libro = (VOLibro) fondo;
+		
+		
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;
 

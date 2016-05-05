@@ -11,6 +11,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import accesoADatos.DAOFondo;
 import accesoADatos.FactoriaDAO;
+import accesoADatos.InterfazAccesoADatos;
+import accesoADatos.InterfazAccesoADatosImpl;
 import accesoADatos.VOLibro;
 
 public class HelperAnadirLibro implements Helper {
@@ -36,10 +38,9 @@ public class HelperAnadirLibro implements Helper {
 	@Override
 	public Document ejecutar() {
 
-		FactoriaDAO f = FactoriaDAO.newFactoria();
-		DAOFondo u = f.crearDAOFondo();
+		InterfazAccesoADatos ia = new InterfazAccesoADatosImpl(); 
 		VOLibro libro = new VOLibro(null, titulo, fecha_compra, iSBN, autores, ano_edicion, editorial);
-		Integer error = u.anadirLibro(libro);
+		Integer error = ia.anadirLibro(libro);
 
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;

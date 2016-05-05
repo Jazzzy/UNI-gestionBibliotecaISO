@@ -7,7 +7,11 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import accesoADatos.InterfazAccesoADatos;
+import accesoADatos.InterfazAccesoADatosImpl;
 import importacion.GestorImportacionCSV;
+import importacion.InterfazImportacion;
+import importacion.InterfazImportacionImpl;
 import importacion.VODatosImportados;
 
 public class HelperImportarDesdeFichero implements Helper {
@@ -22,8 +26,9 @@ public class HelperImportarDesdeFichero implements Helper {
 	@Override
 	public Document ejecutar() {
 
-		GestorImportacionCSV imp = new GestorImportacionCSV(ruta);
-		Integer error = imp.importar();
+		 
+		InterfazImportacion ii = new InterfazImportacionImpl();
+		Integer error = ii.importarDesdeCSV(ruta);
 
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;

@@ -12,6 +12,8 @@ import org.w3c.dom.Element;
 
 import accesoADatos.DAOFondo;
 import accesoADatos.FactoriaDAO;
+import accesoADatos.InterfazAccesoADatos;
+import accesoADatos.InterfazAccesoADatosImpl;
 import accesoADatos.VOFondo;
 import accesoADatos.VOLibro;
 
@@ -29,9 +31,8 @@ public class HelperBuscarLibro implements Helper {
 	@Override
 	public Document ejecutar() {
 
-		FactoriaDAO f = FactoriaDAO.newFactoria();
-		DAOFondo u = f.crearDAOFondo();
-		ArrayList<VOFondo> fondosaux = u.getFondosByAutorYTitulo(autor, titulo);
+		InterfazAccesoADatos ia = new InterfazAccesoADatosImpl(); 
+		ArrayList<VOFondo> fondosaux = ia.getFondosByAutorYTitulo(autor, titulo);
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;
 

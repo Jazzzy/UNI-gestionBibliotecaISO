@@ -11,6 +11,8 @@ import accesoADatos.DAOUsuario;
 import accesoADatos.DAOUsuarioImpl;
 import accesoADatos.FactoriaDAO;
 import accesoADatos.FactoriaDAOImpl;
+import accesoADatos.InterfazAccesoADatos;
+import accesoADatos.InterfazAccesoADatosImpl;
 import accesoADatos.VOUsuario;
 
 public class HelperBorrarUsuario implements Helper {
@@ -24,9 +26,8 @@ public class HelperBorrarUsuario implements Helper {
 	@Override
 	public Document ejecutar() {
 
-		FactoriaDAO f = FactoriaDAO.newFactoria();
-		DAOUsuario u = f.crearDAOUsuario();
-		Integer error = u.borrarUsuarioById(id);
+		InterfazAccesoADatos ia = new InterfazAccesoADatosImpl(); 
+		Integer error = ia.borrarUsuarioById(id);
 
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;

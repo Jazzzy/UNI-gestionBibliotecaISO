@@ -9,6 +9,8 @@ import org.w3c.dom.Element;
 
 import accesoADatos.DAOPrestamo;
 import accesoADatos.FactoriaDAO;
+import accesoADatos.InterfazAccesoADatos;
+import accesoADatos.InterfazAccesoADatosImpl;
 
 public class HelperBorrarPrestamo implements Helper {
 
@@ -22,10 +24,9 @@ public class HelperBorrarPrestamo implements Helper {
 	@Override
 	public Document ejecutar() {
 
-		FactoriaDAO f = FactoriaDAO.newFactoria();
-		DAOPrestamo p = f.crearDAOPrestamo();
-
-		Integer error = p.borrarPrestamo(id);
+		InterfazAccesoADatos ia = new InterfazAccesoADatosImpl(); 
+		
+		Integer error = ia.borrarPrestamo(id);
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;
 		

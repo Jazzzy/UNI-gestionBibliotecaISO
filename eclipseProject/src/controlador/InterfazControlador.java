@@ -19,7 +19,7 @@ public interface InterfazControlador {
 	Document AnadirLibro(String titulo, Date fecha_compra, String iSBN, ArrayList<String> autores, Date ano_edicion, String editorial);
 	Document BorrarLibro(Integer id);
 	Document ModificarLibro(Integer id, String titulo, Date fecha_compra, String iSBN, ArrayList<String> autores, Date ano_edicion, String editorial);
-	Document VisualizarLibro(Integer id);
+	Document VisualizarLibro(String ISBN);
 	Document ImportarDesdeFichero(String ruta);
 	Document BuscarLibro(String titulo, String autor);
 	Document MostrarEstadisticasValoresBruto(Integer opcion, Integer opcion2);

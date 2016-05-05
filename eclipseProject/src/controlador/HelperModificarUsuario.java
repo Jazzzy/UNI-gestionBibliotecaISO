@@ -11,10 +11,13 @@ import org.w3c.dom.Element;
 
 import accesoADatos.DAOUsuario;
 import accesoADatos.FactoriaDAO;
+import accesoADatos.InterfazAccesoADatos;
+import accesoADatos.InterfazAccesoADatosImpl;
 import accesoADatos.VOUsuario;
 
 public class HelperModificarUsuario implements Helper {
 
+	private Integer id;
 	private String nombre;
 	private String DNI;
 	private boolean sexo;
@@ -23,9 +26,10 @@ public class HelperModificarUsuario implements Helper {
 	private String telefono;
 	private String email;
 
-	public HelperModificarUsuario(String nombre, String DNI, boolean sexo, Date fechaNacimiento,
+	public HelperModificarUsuario(Integer id, String nombre, String DNI, boolean sexo, Date fechaNacimiento,
 			String direccion, String telefono, String email) {
 		super();
+		this.id = id;
 		this.nombre = nombre;
 		this.DNI = DNI;
 		this.sexo = sexo;
@@ -38,10 +42,9 @@ public class HelperModificarUsuario implements Helper {
 	@Override
 	public Document ejecutar() {
 
-		FactoriaDAO f = FactoriaDAO.newFactoria();
-		DAOUsuario u = f.crearDAOUsuario();
-		VOUsuario user = new VOUsuario(null, nombre, DNI, sexo, fechaNacimiento, direccion, telefono, email);
-		Integer error = u.modificarUsuario(user);
+		InterfazAccesoADatos ia = new InterfazAccesoADatosImpl(); 
+		VOUsuario user = new VOUsuario(id, nombre, DNI, sexo, fechaNacimiento, direccion, telefono, email);
+		Integer error = ia.modificarUsuario(user);
 
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;

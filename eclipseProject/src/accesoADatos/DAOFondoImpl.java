@@ -132,7 +132,7 @@ public class DAOFondoImpl implements DAOFondo {
                 libro.setTitulo(fondo.getTitulo());
                 libro.setFecha_compra(fondo.getFecha_compra());
                 
-                return fondo;
+                return libro;
 
             }
 

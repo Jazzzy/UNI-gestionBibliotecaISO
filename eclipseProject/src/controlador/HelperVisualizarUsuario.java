@@ -11,6 +11,8 @@ import org.w3c.dom.Element;
 
 import accesoADatos.DAOUsuario;
 import accesoADatos.FactoriaDAO;
+import accesoADatos.InterfazAccesoADatos;
+import accesoADatos.InterfazAccesoADatosImpl;
 import accesoADatos.VOFondo;
 import accesoADatos.VOLibro;
 import accesoADatos.VOUsuario;
@@ -27,9 +29,8 @@ public class HelperVisualizarUsuario implements Helper {
 	@Override
 	public Document ejecutar() {
 
-		FactoriaDAO f = FactoriaDAO.newFactoria();
-		DAOUsuario u = f.crearDAOUsuario();
-		VOUsuario user = u.getUsuarioById(id);
+		InterfazAccesoADatos ia = new InterfazAccesoADatosImpl(); 
+		VOUsuario user = ia.getUsuarioById(id);
 
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;

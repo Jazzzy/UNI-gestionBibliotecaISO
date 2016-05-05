@@ -13,6 +13,8 @@ import accesoADatos.DAOFondo;
 import accesoADatos.DAOPrestamo;
 import accesoADatos.DAOUsuario;
 import accesoADatos.FactoriaDAO;
+import accesoADatos.InterfazAccesoADatos;
+import accesoADatos.InterfazAccesoADatosImpl;
 import accesoADatos.VOLibro;
 import accesoADatos.VOPrestamo;
 import accesoADatos.VOUsuario;
@@ -37,17 +39,14 @@ public class HelperModificarPrestamo implements Helper {
 	@Override
 	public Document ejecutar() {
 
-		FactoriaDAO f = FactoriaDAO.newFactoria();
-		DAOPrestamo p = f.crearDAOPrestamo();
+		InterfazAccesoADatos ia = new InterfazAccesoADatosImpl(); 
+		
+		VOUsuario usuario = ia.getUsuarioById(id_usuario);
 
-		DAOUsuario u = f.crearDAOUsuario();
-		VOUsuario usuario = u.getUsuarioById(id_usuario);
-
-		DAOFondo fo = f.crearDAOFondo();
-		VOLibro fondo = (VOLibro) fo.getFondoById(id_fondo);
+		VOLibro fondo = (VOLibro) ia.getFondoById(id_fondo);
 
 		VOPrestamo prestamo = new VOPrestamo(id_prestamo, inicio, fin, usuario, fondo);
-		Integer error = p.modificarPrestamo(prestamo);
+		Integer error = ia.modificarPrestamo(prestamo);
 
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;

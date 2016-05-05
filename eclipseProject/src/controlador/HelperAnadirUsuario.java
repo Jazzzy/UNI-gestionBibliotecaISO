@@ -11,6 +11,8 @@ import org.w3c.dom.Element;
 
 import accesoADatos.DAOUsuario;
 import accesoADatos.FactoriaDAO;
+import accesoADatos.InterfazAccesoADatos;
+import accesoADatos.InterfazAccesoADatosImpl;
 import accesoADatos.VOUsuario;
 
 public class HelperAnadirUsuario implements Helper {
@@ -38,10 +40,9 @@ public class HelperAnadirUsuario implements Helper {
 	@Override
 	public Document ejecutar() {
 
-		FactoriaDAO f = FactoriaDAO.newFactoria();
-		DAOUsuario u = f.crearDAOUsuario();
+		InterfazAccesoADatos ia = new InterfazAccesoADatosImpl(); 
 		VOUsuario user = new VOUsuario(null, nombre, DNI, sexo, fechaNacimiento, direccion, telefono, email);
-		Integer error = u.anadirUsuario(user);
+		Integer error = ia.anadirUsuario(user);
 
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;

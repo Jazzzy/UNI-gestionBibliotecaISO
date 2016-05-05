@@ -364,19 +364,20 @@ public class DAOUsuarioImpl implements DAOUsuario {
                     + "dni = ?, "
                     + "sexo = ?, "
                     + "fecha_nacimiento = ?, "
-                    + "direccion = ? "
-                    + "telefono = ? "
+                    + "direccion = ? ,"
+                    + "telefono = ? ,"
                     + "email = ? "
                     + "WHERE id = ?;";
 
             pstmt2 = con.prepareStatement(sqlUpdate);
             pstmt2.setString(1, usuario.getNombre());
-            pstmt2.setString(2, usuario.getEmail());
+            pstmt2.setString(2, usuario.getDni());
             pstmt2.setBoolean(3, usuario.isSexo());
             pstmt2.setDate(4, new java.sql.Date(usuario.getFecha_nacimiento().getTime()));
             pstmt2.setString(5, usuario.getDireccion());
             pstmt2.setString(6, usuario.getTelefono());
             pstmt2.setString(7, usuario.getEmail());
+            pstmt2.setInt(8, usuario.getId());
 
             con.setAutoCommit(false);
             ResultSet res = pstmt.executeQuery();
