@@ -12,7 +12,7 @@ public class GestorImportacion {
 
 	}
 
-	public VODatosImportados importar() {
+	public Integer importar() {
 		return null;
 	}
 

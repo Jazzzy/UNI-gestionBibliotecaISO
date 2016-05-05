@@ -22,10 +22,10 @@ public interface InterfazControlador {
 	Document VisualizarLibro(Integer id);
 	Document ImportarDesdeFichero(String ruta);
 	Document BuscarLibro(String titulo, String autor);
-	Document MostrarEstadisticasValoresBruto(Integer opcion);
-	Document MostrarEstadisticasMedias(Integer opcion);
-	Document MostrarEstadisticasPorcentajes(Integer opcion);
-	Document MostrarEstadisticasHistogramas(Integer opcion);
+	Document MostrarEstadisticasValoresBruto(Integer opcion, Integer opcion2);
+	Document MostrarEstadisticasMedias(Integer opcion, Integer opcion2);
+	Document MostrarEstadisticasPorcentajes(Integer opcion, Integer opcion2, Date fecha);
+	Document MostrarEstadisticasHistogramas(Integer opcion, Integer opcion2);
 	Document AnadirPrestamo(Integer id_usuario, Integer id_fondo, Date inicio, Date fin);
 	Document ModificarPrestamo(Integer id_prestamo, Integer id_usuario, Integer id_fondo, Date inicio, Date fin);
 	Document BorrarPrestamo(Integer id);

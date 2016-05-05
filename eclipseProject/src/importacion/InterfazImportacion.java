@@ -2,6 +2,6 @@ package importacion;
 
 public interface InterfazImportacion {
 
-	VODatosImportados importarDesdeCSV(String ruta);
+	Integer importarDesdeCSV(String ruta);
 	
 }

@@ -6,11 +6,11 @@ public class GestorImportacionCSV extends GestorImportacion {
 		super(ruta);
 	}
 
-	public VODatosImportados importar() {
+	public Integer importar() {
 		
 		
 		InterfazImportacion imp = new InterfazImportacionImpl();
-		VODatosImportados aux;
+		Integer aux;
 		aux = imp.importarDesdeCSV(ruta);
 		
 		return aux;

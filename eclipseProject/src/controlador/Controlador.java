@@ -61,36 +61,36 @@ public class Controlador implements InterfazControlador {
 
 
 	@Override
-	public Document MostrarEstadisticasValoresBruto(Integer opcion) {
+	public Document MostrarEstadisticasValoresBruto(Integer opcion, Integer opcion2) {
 		
-		h = new HelperMostrarEstadisticas(opcion);
+		h = new HelperMostrarEstadisticas(opcion, opcion2);
 		data = h.ejecutar();
 
 		return data;
 	}
 
 	@Override
-	public Document MostrarEstadisticasMedias(Integer opcion) {
+	public Document MostrarEstadisticasMedias(Integer opcion, Integer opcion2) {
 		
-		h = new HelperMostrarEstadisticas(opcion);
+		h = new HelperMostrarEstadisticas(opcion, opcion2);
 		data = h.ejecutar();
 
 		return data;
 	}
 
 	@Override
-	public Document MostrarEstadisticasPorcentajes(Integer opcion) {
+	public Document MostrarEstadisticasPorcentajes(Integer opcion, Integer opcion2, Date fecha) {
 		
-		h = new HelperMostrarEstadisticas(opcion);
+		h = new HelperMostrarEstadisticas(opcion, opcion2, fecha);
 		data = h.ejecutar();
 
 		return data;
 	}
 
 	@Override
-	public Document MostrarEstadisticasHistogramas(Integer opcion) {
+	public Document MostrarEstadisticasHistogramas(Integer opcion, Integer opcion2) {
 		
-		h = new HelperMostrarEstadisticas(opcion);
+		h = new HelperMostrarEstadisticas(opcion, opcion2);
 		data = h.ejecutar();
 
 		return data;
