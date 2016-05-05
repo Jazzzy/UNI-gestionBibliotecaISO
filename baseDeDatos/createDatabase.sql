@@ -15,7 +15,7 @@ CREATE TABLE Usuario(
 	fecha_nacimiento DATE NOT NULL,
 	direccion VARCHAR(120) NOT NULL,
 	telefono VARCHAR(13) NOT NULL,
-	email VARCHAR(40) NOT NULL,
+	email VARCHAR(40) NOT NULL UNIQUE,
 	PRIMARY KEY (id)
 );
 
@@ -63,6 +63,5 @@ CREATE TABLE Prestamo(
 	FOREIGN KEY (id_fondo) REFERENCES Fondo(id)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE	
-
 );
 

@@ -4,25 +4,22 @@ import java.util.ArrayList;
 
 public interface DAOUsuario {
 
-	VOUsuario getUsuarioById(Integer id);
+    VOUsuario getUsuarioById(Integer id);
 
-	VOUsuario getUsuarioByNombre(String nombre);
+    VOUsuario getUsuarioByEmail(String email);
 
-	VOUsuario getUsuarioByEmail(String email);
+    VOUsuario getUsuarioByDNI(String DNI);
 
-	VOUsuario getUsuarioByDNI(String DNI);
+    ArrayList<VOUsuario> getUsuarios();
 
-	ArrayList<VOUsuario> getUsuarios();
+    Integer anadirUsuario(VOUsuario usuario);
 
-	Integer anadirUsuario(VOUsuario usuario);
+    Integer borrarUsuario(VOUsuario usuario);
 
-	Integer borrarUsuario(VOUsuario usuario);
+    Integer borrarUsuarioById(Integer id);
 
-	Integer borrarUsuarioById(Integer id);
+    Integer borrarUsuarioByDNI(String DNI);
 
-	Integer borrarUsuarioByDNI(String DNI);
+    Integer modificarUsuario(VOUsuario usuario);
 
-	Integer modificarUsuario(VOUsuario usuario);
-
-	
 }

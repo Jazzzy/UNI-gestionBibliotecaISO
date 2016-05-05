@@ -4,13 +4,13 @@ use DBbiblioteca;
 
 INSERT INTO Usuario(nombre,dni,sexo,fecha_nacimiento,direccion,telefono,email) VALUES
 ('Pepe','12312312A',1,'1990-01-01','Avda de mi casa N 123','698789865','miEmail@ole.com'),
-('Jose','12312312B',1,'1990-01-01','Avda de mi casa N 123','698789865','miEmail@ole.com'),
-('Juan','12312312C',1,'1990-01-01','Avda de mi casa N 123','698789865','miEmail@ole.com'),
-('Antonio','12312312D',1,'1990-01-01','Avda de mi casa N 123','698789865','miEmail@ole.com'),
-('Bruguera','12312312E',1,'1990-01-01','Avda de mi casa N 123','698789865','miEmail@ole.com'),
-('Tahoces','12312312F',1,'1990-01-01','Avda de mi casa N 123','698789865','miEmail@ole.com'),
-('Jose Varela','12312312G',1,'1990-01-01','Avda de mi casa N 123','698789865','miEmail@ole.com'),
-('Mosquera','12312312H',1,'1990-01-01','Avda de mi casa N 123','698789865','miEmail@ole.com');
+('Jose','12312312B',1,'1990-01-01','Avda de mi casa N 123','698789865','miEmail@ole1.com'),
+('Juan','12312312C',1,'1990-01-01','Avda de mi casa N 123','698789865','miEmail@ole2.com'),
+('Antonio','12312312D',1,'1990-01-01','Avda de mi casa N 123','698789865','miEmail@ole3.com'),
+('Bruguera','12312312E',1,'1990-01-01','Avda de mi casa N 123','698789865','miEmail@ole4.com'),
+('Tahoces','12312312F',1,'1990-01-01','Avda de mi casa N 123','698789865','miEmail@ole5.com'),
+('Jose Varela','12312312G',1,'1990-01-01','Avda de mi casa N 123','698789865','miEmail@ole6.com'),
+('Mosquera','12312312H',1,'1990-01-01','Avda de mi casa N 123','698789865','miEmail@ole7.com');
 
 INSERT INTO Fondo(titulo,fecha_compra) VALUES
 ('Quijote: Parte 1','1990-02-03'),

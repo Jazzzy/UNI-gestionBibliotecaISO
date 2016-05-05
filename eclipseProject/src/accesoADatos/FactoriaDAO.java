@@ -1,4 +1,3 @@
-
 package accesoADatos;
 
 import org.w3c.dom.Document;
@@ -18,36 +17,36 @@ import java.util.logging.Logger;
 
 public abstract class FactoriaDAO {
 
-	public static FactoriaDAO newFactoria() {
-		try {
-			InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream("conf/config.xml");
-			Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new InputSource(input));
-			XPath xpath = XPathFactory.newInstance().newXPath();
-			String url = (String) xpath.compile("//config//jdbc//url").evaluate(document, XPathConstants.STRING);
-			String[] cut = url.split(":");
+    public static FactoriaDAO newFactoria() {
+        try {
+            InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream("accesoADatos/conf/config.xml");
+            Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new InputSource(input));
+            XPath xpath = XPathFactory.newInstance().newXPath();
+            String url = (String) xpath.compile("//config//jdbc//url").evaluate(document, XPathConstants.STRING);
+            String[] cut = url.split(":");
 
-			switch (cut[1]) {
-			case "mysql":
-				System.out.println("Creando factoria mysql");
-				return new FactoriaDAOImpl();
-			}
+            switch (cut[1]) {
+                case "mysql":
+                    System.out.println("Creando factoria mysql");
+                    return new FactoriaDAOImpl();
+            }
 
-		} catch (IOException ex) {
-			Logger.getLogger(FactoriaDAO.class.getName()).log(Level.SEVERE, null, ex);
-		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-		} catch (XPathExpressionException e) {
-			e.printStackTrace();
-		} catch (SAXException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+        } catch (IOException ex) {
+            Logger.getLogger(FactoriaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
-	public abstract DAOUsuario crearDAOUsuario();
+    public abstract DAOUsuario crearDAOUsuario();
 
-	public abstract DAOFondo crearDAOFondo();
+    public abstract DAOFondo crearDAOFondo();
 
-	public abstract DAOPrestamo crearDAOPrestamo();
+    public abstract DAOPrestamo crearDAOPrestamo();
 
 }

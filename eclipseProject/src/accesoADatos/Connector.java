@@ -18,21 +18,22 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class Connector {
-	public Connection getConnection() {
+
+    public Connection getConnection() {
         String url = "";
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            
-            InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream("conf/config.xml");
+
+            InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream("accesoADatos/conf/config.xml");
             Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new InputSource(input));
             XPath xpath = XPathFactory.newInstance().newXPath();
-            url = (String) xpath.compile("//accesoADatos//config//jdbc//url").evaluate(document, XPathConstants.STRING);
-            String driver = (String) xpath.compile("//accesoADatos//config//jdbc//driver").evaluate(document, XPathConstants.STRING);
-            String username = (String) xpath.compile("//accesoADatos//config//jdbc//username").evaluate(document, XPathConstants.STRING);
-            String password = (String) xpath.compile("//accesoADatos//config//jdbc//password").evaluate(document, XPathConstants.STRING);
-            Connection con = DriverManager.getConnection(url , username, password);
+            url = (String) xpath.compile("//config//jdbc//url").evaluate(document, XPathConstants.STRING);
+            String driver = (String) xpath.compile("//config//jdbc//driver").evaluate(document, XPathConstants.STRING);
+            String username = (String) xpath.compile("//config//jdbc//username").evaluate(document, XPathConstants.STRING);
+            String password = (String) xpath.compile("//config//jdbc//password").evaluate(document, XPathConstants.STRING);
+
+            Connection con = DriverManager.getConnection(url, username, password);
             return con;
         } catch (SQLException e) {
             System.out.println("Conexion NO establecida con " + url);
