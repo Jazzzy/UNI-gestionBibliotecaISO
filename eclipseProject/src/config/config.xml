@@ -4,6 +4,6 @@
         <url>jdbc:mysql://localhost:3306/DBbiblioteca</url>
         <driver>com.mysql.jdbc.Driver</driver>
         <username>root</username>
-        <password></password>
+        <password>root</password>
     </jdbc>
 </config>
