@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class DAOFondoImpl implements DAOFondo {
 
@@ -452,6 +454,13 @@ public class DAOFondoImpl implements DAOFondo {
 
     @Override
     public Integer anadirLibro(VOLibro libro) {
+    	
+    	Pattern p = Pattern.compile("^(?:ISBN(?:-1[03])?:? )?(?=[0-9X]{10}$|(?=(?:[0-9]+[- ]){3})[- 0-9X]{13}$|97[89][0-9]{10}$|(?=(?:[0-9]+[- ]){4})[- 0-9]{17}$)(?:97[89][- ]?)?[0-9]{1,5}[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$");
+    	Matcher m = p.matcher(libro.getISBN());
+    	if(!m.matches()){
+    		return -1;
+    	}
+    	
         Connector connector = new Connector();
         Connection con = connector.getConnection();
         try {
