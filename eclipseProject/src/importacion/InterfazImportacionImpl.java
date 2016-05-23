@@ -32,7 +32,6 @@ public class InterfazImportacionImpl implements InterfazImportacion {
 			ArrayList<VOFondo> fondos = new ArrayList<>();
 
 			VOLibro libroaux;
-
 			br = new BufferedReader(new FileReader(ruta));
 
 			while ((line = br.readLine()) != null) {
